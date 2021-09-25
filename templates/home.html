@@ -1,0 +1,196 @@
+<!--<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+
+<nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+    <a class="navbar-brand" href="#">Sales Prediction</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<body> -->
+    
+    
+    {% extends "base.html" %}
+
+
+{% block head %} <title style="text-align:center;">Sales</title> {% endblock %}
+
+
+{% block body %} 
+    <div class="container-fluid" >
+        <div class="col-lg-12">
+                <form action="{{ url_for('result') }}" method="post">
+                    <br>
+                    <br>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                                <label for="item_weight">Item weight</label>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <input type="text" class="form-control" id="item_weight" name="item_weight" value="10.5" placeholder="Enter Item Weight">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                                <label for="item_fat_content">Item fat content</label>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <!-- <input type="text" class="form-control" id="item_fat_content" name="item_fat_content" placeholder="Enter Fat Content"> -->
+                                <select  class="form-control" id="item_fat_content" name="item_fat_content" placeholder="Enter Fat Content">
+                                    <option value=1>Low Fat</option><option value=2>Regular</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                                <label for="item_visibility">Item visibility</label>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <input type="text" class="form-control" id="item_visibility"  value="0.0198" name="item_visibility" placeholder="Item visibility">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                                <label for="item_type">Item type</label>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <select class="form-control" id="item_type" name="item_type" placeholder="item_type">
+                                    <option value=1>Fruits and Vegetables</option><option value="2">Snack Foods</option>
+                                    <option value=3>Household</option>
+                                    <option value=4>Frozen Foods</option>
+                                    <option value=5>Dairy</option>
+                                    <option value=6>Canned</option>
+                                    <option value=7>Baking Goods</option>
+                                    <option value=8>Health and Hygiene</option>
+                                    <option value=9>Soft Drinks</option>
+                                    <option value=10>Meat</option>
+                                    <option value=11>Breads</option>
+                                    <option value=12>Hard Drinks</option>
+                                    <option value=13>Others</option>
+                                    <option value=14>Starchy Foods</option>
+                                    <option value=15>Breakfast</option>
+                                    <option value=16>Seafood</option>
+                                </select>   
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                                <label for="item_mrp">Item mrp</label>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <input type="text" class="form-control" id="item_mrp" name="item_mrp" value="1002" placeholder="MRP of Item">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                                <label for="outlet_establishment_year">Outlet establishment year</label>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <input type="text" class="form-control" id="outlet_establishment_year" value="2019" name="outlet_establishment_year" placeholder="Outlet establishment year">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                                <label for="outlet_size">Outlet size</label>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <select class="form-control" id="outlet_size" name="outlet_size" placeholder="outlet_size">
+                            <option value=2>Small</option>
+                                    <option value=1>Medium</option>
+                                <option value=3>High</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+			<br>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                                <label for="outlet_location_type">Outlet location type</label>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <select class="form-control" id="outlet_location_type" name="outlet_location_type" placeholder="outlet_location_type">
+                                <option value=1>Tier 1</option>
+                                <option value=2>Tier 2</option>
+                                <option value=3>Tier 3</option>
+                                </select>    
+                            </div>
+                        </div>
+                        <br>
+			<br>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                                <label for="outlet_type">Outlet type</label>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <select class="form-control" id="outlet_type" name="outlet_type" placeholder="outlet_type">
+                                    <option value="1">Supermarket Type1</option>
+                                    <option value="2">Supermarket Type2</option>
+                                    <option value="3">Supermarket Type3</option>
+                                    <option value="4">Grocery Store</option>
+                                </select>    
+                            </div>
+                        </div>
+                        <br>
+                        <center>
+                            <button type="submit" class="btn btn-dark" value="submit" id="predictnow">Submit</button>
+                        </center>
+                </form>
+            </div>
+        </div>
+<script>
+    $(function() {
+
+    $('#predictnow').on('click',function(){
+    
+      $('#loader').show();
+   
+  });
+});
+    </script>
+        {% endblock %}
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ <!--       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+<style>
+body {
+    background-color: #626269;
+}
+
+.col-lg-4 {
+    color: #ffffff;
+}
+</style>
+
+</html>-->
